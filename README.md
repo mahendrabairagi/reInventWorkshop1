@@ -10,9 +10,7 @@
 
 ![image](/screenshots/Slide07.jpeg)
 
-# [Lab 2 Link]
-
-https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Sentiment_Analysis.md
+# [Lab 2 Link](https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Sentiment_Analysis.md)
 
 ![image](/screenshots/Slide08.jpeg)
 
