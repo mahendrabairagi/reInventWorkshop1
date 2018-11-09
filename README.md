@@ -10,9 +10,12 @@
 
 ![image](/screenshots/Slide07.jpeg)
 
-# [Lab 2 Link](https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Create_custom_Sagemaker_model_and_deploy_on_Deeplens.md)
+# [Lab 2 Link]
+
+https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Sentiment_Analysis.md
 
 ![image](/screenshots/Slide08.jpeg)
+
 
 
 # MISC:
