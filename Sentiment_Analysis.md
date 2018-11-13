@@ -184,7 +184,7 @@ Configure with the following:
 
 **Prefix**: faces/
 
-**Filter**: .jpg
+**Suffix**: .jpg
 
 **Enable trigger**: ON (keep the checkbox on)
 
