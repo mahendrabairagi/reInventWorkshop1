@@ -212,6 +212,9 @@ You can now see average emotion scores from faces detected at the edge in a dash
 
 NOTE: These metrics will only appear once they have been sent to Cloudwatch via the Rekognition Lambda. It may take some time for them to appear after your model is deployed and running locally. If they do not appear, then there is a problem somewhere in the pipeline.
 
+You can also take a look at the DynamoDB table you created, to see the results of our emotion detection being written to your table.
+
+![dynamodb](https://user-images.githubusercontent.com/36491325/48437298-ef1e3600-e74e-11e8-9ff3-b4e22d981edb.png)
 
 ### With this we have come to the end of the session. As part of building this project, you learnt the following:
 
