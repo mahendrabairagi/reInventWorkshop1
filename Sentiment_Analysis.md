@@ -129,8 +129,7 @@ You should now start to see deployment status. Once the project has been deploye
 
 **Confirmation/ verification**
 
-You will find your cropped faces uplaod to your S3 bucket.
-
+To confirm your model is running, check the bucket you created to see if images of cropped faces are being uploaded.
 
 
 # Hands-on Step 3: Identify emotions
@@ -139,30 +138,34 @@ You will find your cropped faces uplaod to your S3 bucket.
 
 Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Dynamo
 
-Click on Create Table.
+Click on **Create Table**.
 
-Name of the table: recognize-emotions-your-name
-Primary key: s3key
+**Table name**: rekognize-faces-your-name
 
-Click on Create. This will create a table in your DynamoDB.
+**Primary key**: s3key
+
+Click on **Create**. This will create a table in your DynamoDB.
 
 
 **Step 3.2 - Create a lambda function that runs in the cloud**
 
-The inference lambda function that you deployed earlier will upload the cropped faces to your S3. On S3 upload, this new lambda function gets triggered and runs the Rekognize Emotions API by integrating with Amazon Rekognition. 
+The inference lambda function that you deployed earlier will upload the cropped faces to your S3. You will now create a new lambda function in the cloud that triggers on this S3 upload. This new lambda function gets triggered and runs the Rekognize Emotions API by integrating with Amazon Rekognition. 
 
 Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Lambda
 
-Click 'Create function'
+Click **Create function**
 
-Choose 'Author from scratch'
+Choose **Author from scratch**
 
-Name the function: recognize-emotion-your-name.  
-Runtime: Choose Python 2.7
-Role: Choose an existing role
-Existing role: rekognizeEmotions
+**Name** the function: recognize-emotion-your-name.  
 
-Choose Create function
+**Runtime**: Choose Python 2.7
+
+**Role**: Choose an existing role
+
+**Existing role**: rekognizeEmotions
+
+Choose **Create function**
 
 Replace the default script with the script in [recognize-emotions.py](https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Integrate%20with%20Rekognition/rekognize-emotions.py). You can select the script by selecting Raw in the Github page and choosing the script using ctrl+A/ cmd+A . Copy the script and paste it into the lambda function (make sure you delete the default code).
 
@@ -175,15 +178,19 @@ Next, we need to add the event that triggers this lambda function. This will be 
 
 Configure with the following:
 
-Bucket name: face-detection-your-name (you created this bucket earlier)
-Event type- Object Created
-Prefix- faces/
-Filter- .jpg
-Enable trigger- ON (keep the checkbox on)
+**Bucket name**: (you created this bucket earlier)
 
-Save the lambda function
+**Event type**: Object Created
 
-Under 'Actions' tab choose **Publish**
+**Prefix**: faces/
+
+**Filter**: .jpg
+
+**Enable trigger**: ON (keep the checkbox on)
+
+**Save** the lambda function
+
+Under **Actions** tab choose **Publish**
 
 **Step 3.3 - View the emotions on a dashboard**
 
