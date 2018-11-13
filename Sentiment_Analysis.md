@@ -167,7 +167,7 @@ Choose **Author from scratch**
 
 Choose **Create function**
 
-Replace the default script with the script in [recognize-emotions.py](https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Integrate%20with%20Rekognition/rekognize-emotions.py). You can select the script by selecting Raw in the Github page and choosing the script using ctrl+A/ cmd+A . Copy the script and paste it into the lambda function (make sure you delete the default code).
+Replace the default script with the script in [recognize-emotions.py](https://raw.githubusercontent.com/mahendrabairagi/reInventWorkshop1/master/Integrate%20with%20Rekognition/rekognize-emotions.py). Copy the script and paste it into the lambda function (make sure you delete the default code).
 
 Make sure you enter the table name you created earlier in the section highlighted below:
 
