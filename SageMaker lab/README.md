@@ -98,4 +98,6 @@ The ipython kernel keeps track of the state of the code ran so far, so it's impo
 
 **Note**: By the end of running the notebook, you'll have trained a face detection model, but not a good one. In reality it takes a long time to train a face detection model that performs at the level we need. For our purposes, we will use the pre-trained model DeepLens provides us for the rest of this lab.
 
+Your model will take 10-15 minutes to train for one epoch. Please move forward with the rest of the lab, and check back to view the outputs of your training job periodically.
+
 You've now completed the SageMaker portion of this lab.
