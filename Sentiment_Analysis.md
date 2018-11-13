@@ -24,17 +24,9 @@ In this step, you will build and train a face detection model. Follow instructio
 
 # Hands-on Step 2: Build a project to detect faces and send the cropped faces to S3 bucket
 
-#### Create Bucket:
+#### Recall Bucket:
 
-We need to create an S3 bucket that we can upload faces to.
-
-Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for S3
-
-Choose 'Create bucket'
-
-Name your bucket : face-detection-<your-name>
-
-Click on Create 
+Recall the bucket name you created in the SageMaker lab, we'll be using it shortly.
 
 #### Create Inference lambda function:
 
@@ -48,20 +40,23 @@ Before we deploy a project to DeepLens, we need to create a custom lambda functi
 
 Go to [AWS Management console](https://console.aws.amazon.com/console/home?region=us-east-1) and search for Lambda
 
-Click 'Create function'
+Click **Create function**
 
-Choose 'Blueprints'
+Choose **Blueprints**
 
-In the search bar, type “greengrass-hello-world” and hit Enter
+In the search bar, type **greengrass-hello-world** and hit **Enter**.
 
-Choose the python blueprint and click Configure
+Choose the python blueprint and click **Configure**/
 
-Name the function: DeepLens-sentiment-your-name
-Role: Choose an existing role
-Existing Role: AWSDeepLensLambdaRole
+**Name** the function: DeepLens-sentiment-your-name
 
-Click Create Function
-Replace the default script with the [inference script](https://github.com/mahendrabairagi/reInventWorkshop1/blob/master/Inference%20Lambda/inference-lambda.py)
+**Role**: Choose an existing role
+
+**Existing Role**: AWSDeepLensLambdaRole
+
+Click **Create Function**.
+
+Scroll down to **Function Code**. Once generated, replace the default script with the [inference script](https://raw.githubusercontent.com/mahendrabairagi/reInventWorkshop1/master/Inference%20Lambda/inference-lambda.py) here by copying and pasting.
 
 You can select the inference script, by selecting Raw in the Github page and choosing the script using ctrl+A/ cmd+A . Copy the script and paste it into the lambda function (make sure you delete the default code).
 

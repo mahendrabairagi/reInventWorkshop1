@@ -19,6 +19,7 @@ import urllib
 import zipfile
 import json
 import numpy as np
+import boto3
 
 class LocalDisplay(Thread):
     """ Class for facilitating the local display of inference results
@@ -78,19 +79,6 @@ class LocalDisplay(Thread):
 
     def join(self):
         self.stop_request.set()
-
-
-#boto3 is not installed on device by default.
-
-boto_dir = '/tmp/boto_dir'
-if not os.path.exists(boto_dir):
-    os.mkdir(boto_dir)
-urllib.urlretrieve("https://s3.amazonaws.com/dear-demo/boto_3_dist.zip", "/tmp/boto_3_dist.zip")
-with zipfile.ZipFile("/tmp/boto_3_dist.zip", "r") as zip_ref:
-    zip_ref.extractall(boto_dir)
-sys.path.append(boto_dir)
-
-import boto3
 
 iot_topic = '$aws/things/{}/infer'.format(os.environ['AWS_IOT_THING_NAME'])
 client = greengrasssdk.client('iot-data')
