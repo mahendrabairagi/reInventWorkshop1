@@ -13,7 +13,7 @@ In this project you will learn to build a deep learning model to identify and an
 5. Create a DynamoDB table to store the recognized emotions
 6. Analyze using CloudWatch
 
-![image](https://user-images.githubusercontent.com/11222214/37996605-1ba4be34-31cd-11e8-9e25-ba3a1cdbc9db.png)
+![image](https://user-images.githubusercontent.com/36491325/48433553-5df69180-e745-11e8-9961-ce9837b96485.png)
 
 The workshop consists of 3 steps:
 

@@ -8,15 +8,13 @@ The first stop in the pipeline of your Crowd Emotion Tracking App is a face-dete
 
 This limits both the number of API calls we make, as well as the size of content we send.
 
-In this challenge, you will use SageMaker in your efforts to deploy a face-detection model. You will first launch a SageMaker notebook instance; from your notebook, you will be able to explore the data your model will train on, see how the model is trained, and deploy a -trained model to an inference endpoint. You will also create an S3 bucket for the endpoint to store detected faces, which you will need as part of your app's pipeline.
+In this challenge, you will use SageMaker in your efforts to train and deploy face-detection model. You will first launch a SageMaker notebook instance; from your notebook, you will be able to explore the data your model will train on, see how the model is trained, and deploy a trained model to an inference endpoint. You will also create an S3 bucket for the endpoint to store detected faces, which you will need as part of your app's pipeline.
 
 ## Instruction
 
 ### Launching a SageMaker Notebook Instance
 
-Go to [https://aws.amazon.com/](https://aws.amazon.com/) and either sign-in or create an account.
-
-Next, at the home console screen, type in "SageMaker" into the search bar and click "Amazon SageMaker":
+At the home console screen, type in "SageMaker" into the search bar and click "Amazon SageMaker":
 
 ![Alt text](../screenshots/console_0.png)
 
@@ -32,33 +30,12 @@ Next, click the orange "Create notebook instance" box on the panel in the upper-
 Amazon SageMaker provides pre-built fully managed notebook instances that run Jupyter notebooks. Here, we're going to configure our notebook server:
 * Under Notebook instance name: Enter a name for your notebook instance
 * Under Notebook instance type: Select an instance type (recommend using default "ml.t2.medium")
-* Under IAM Role: Select "Create a new role"
-
-When you click "Create a new role", a pop-up window will appear that will let you configure S3 access for your SageMaker IAM role. Please select "Any S3 bucket", then "Create role".
-
-![Alt text](../screenshots/create_iam_role_0.png)
-
-You should see a "Success" message once you create the role (it will have a different name than the one shown here).
-
-![Alt text](../screenshots/create_nb_instance_1.png)
+* Under IAM Role: There should already be a role here, called **AmazonSageMaker-ExecutionRole**. If not, in the drop down menu select this role under **Use existing role**.
 
 And click "Create notebook instance" on the bottom right. You should be re-directed to the notebook dashboard where you will see the instance status is "Pending". SageMaker is spinning up the notebook instance, this should take 5-10 minutes.
 
 ![Alt text](../screenshots/notebook_dashboard_0.png)
 
-### Add S3 Full Access to your SageMaker IAM Role
-
-While the notebook instance is launching, we're going to add full S3 permissions to the SageMaker Role we just created. Navigate to the IAM console through the search panel, and select "Roles" from the side-bar on the left. Search for the SageMaker Execution Role you just created:
-
-![Alt text](../screenshots/add_permissions_sm_0.png)
-
-Next, click "Attach Policy" and search for "AmazonS3FullAccess". Select this policy, and click "Attach Policy" at the bottom right of the screen.
-
-![Alt text](../screenshots/add_permissions_sm_1.png)
-
-You should now see this policy attached to your SageMaker Execution Role.
-
-![Alt text](../screenshots/add_permissions_sm_2.png)
 
 ### Creating an S3 Bucket
 
@@ -82,17 +59,17 @@ Great, now you've created a bucket for storing face crops. Keep track of the nam
 
 Let's navigate back to the SageMaker console in the same way we got to the S3 console, by clicking the "Services" tab and searching "Sagemaker".
 
-### Deploying the Face-detection Model
+### Training & Deploying the Face-detection Model
 
 Once back in the SageMaker console, select the "Notebook" tab from the sidebar on the left. You should see the same notebook screen as before, only now instead of "Pending", the status should read "InService" (if not, please wait a bit longer). Next, click "Open" under "Actions" to open your notebook instance.
 
 ![Alt text](../screenshots/notebook_dashboard_1.png)
 
-You'll be redirected to the notebook instance, and will land in the jupyter notebook dashboard. From here, you can navigate through your local filesystem, open and edit notebooks, text files, terminals, etc. By default, you'll have two directories: "lost+found" and "sample-notebooks", the latter of which contains a litany of examples for building, training, and deploying algorithms on SageMaker.
+You'll be redirected to the notebook instance, and will land in the jupyter notebook dashboard. From here, you can navigate through your local filesystem, open and edit notebooks, text files, terminals, etc. By default, you'll have one directory: "lost+found".
 
 The "New" tab on the top right can be used to create new files, as well as open up a terminal window through the dashboard. We need to clone a github repository, so let's open up a new terminal:
 
-![Alt text](../screenshots/jupyter_dashboard_1.png)
+![Alt text](https://user-images.githubusercontent.com/36491325/48434566-09a0e100-e748-11e8-8836-79f74790dd3d.png)
 
 Once in the terminal, run the following commands to clone the repo into the dashboard's root directory:
 ```shell
@@ -102,7 +79,7 @@ git clone https://github.com/mahendrabairagi/DeeplensWorkshop.git
 
 Next, close the terminal tab and go back to the dashboard. You should see a new folder, "DeeplensWorkshop". 
 
-![Alt text](../screenshots/jupyter_dashboard_2.png)
+![Alt text](https://user-images.githubusercontent.com/36491325/48434606-2fc68100-e748-11e8-98f4-e178de781c16.png)
 
 Select that folder, then select the folder "SageMakerLab". You should see contents similar to this:
 
@@ -118,17 +95,7 @@ The markdown blocks are just there to provide accompanying documentation to the 
 
 The ipython kernel keeps track of the state of the code ran so far, so it's important to run code blocks sequentially from the top-down so it can process in the correct order. When you run a code block, the "In" next to the block indicates the state of the kernel; it will either show a "\*" to indicate that the code block is still processing, or it will show an integer that shows the order in which the blocks were run since the notebook was launched. (These are already there by default).
 
-****Please make note that in our Deeplens project we won't be using the model created through this notebook, You can proceed to run each block in the code to create the model. With current hyperparameter settings this model can be trained in 10-15 mins however doens not provide high accuracy for face detection. For actual face detection in lambda we will use out of box model available in Deeplens  project templates.
 
-I would like to run train this model, please proceed to run each code block.
-When you run last cell with "net_sagemaker.fit(inputs)" 
-***Please make note of log "INFO:sagemaker:Creating training-job with name: sagemaker-mxnet-xxx-xxx-xx"***
-You will need this Sagemaker job name in the model deployment part of lab.
+**Note**: By the end of running the notebook, you'll have trained a face detection model, but not a good one. In reality it takes a long time to train a face detection model that performs at the level we need. For our purposes, we will use the pre-trained model DeepLens provides us for the rest of this lab.
 
-This block does actual model training and may take 10-15 mins.
-Once model training is complete it will show 
-"===== Job Complete =====
-Billable seconds:xxx"
-
-
-You've now completed the Challenge.
+You've now completed the SageMaker portion of this lab.
