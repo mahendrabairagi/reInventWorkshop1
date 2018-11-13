@@ -55,7 +55,7 @@ Click "Create" at the bottom left.
 
 ![Alt text](../screenshots/create_bucket_1.png)
 
-Great, now you've created a bucket for storing face crops. Keep track of the name of the bucket, as we'll be using it shortly. 
+Great, now you've created a bucket for storing face crops. **Keep track of the name of the bucket**, as we'll be using it shortly. 
 
 Let's navigate back to the SageMaker console in the same way we got to the S3 console, by clicking the "Services" tab and searching "Sagemaker".
 
