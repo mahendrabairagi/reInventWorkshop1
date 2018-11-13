@@ -62,7 +62,7 @@ Once your project has deployed, scroll down your device page to the **Project Ou
 
 Click **Copy** to copy the IoT topic id unique to your device (this is the topic your Project is publishing messages to).
 
-Then click the link to the AWS IoT Console. Once there, paste your IoT topic id into the **Subscription topic** field, then click **Subscribe**.
+Then click the link to the **AWS IoT Console**. Once there, paste your IoT topic id into the **Subscription topic** field, then click **Subscribe**.
 
 ![iot dash](https://user-images.githubusercontent.com/36491325/48432695-1ec74100-e743-11e8-8af6-3268234b7233.png)
 
