@@ -27,7 +27,8 @@ Scroll down the screen and select **Create**
 ### Step 2- Deploy to device
 In this step, you will deploy the Face detection project to your AWS DeepLens device.
 
-Select the project you just created from the list by choosing the radio button
+Select the project you just created from the list by choosing the radio button.
+**Note**: You may see your project in the Projects list, but are not able to deploy it. This means it's still being created, and it may take up to a minute. Refresh until you see a **Creation Time** for your project; now you will be able to deploy it.
 
 
 Select Deploy to device.
@@ -47,58 +48,41 @@ On the AWS DeepLens console, you can track the progress of the deployment. It ca
 
 ## View Output
 
-<details> <summary>Deeplens connected over monitor setup </summary>
-  
- **Option 1: View over mplayer**
+This default projects give inference output in two forms:
+* Messages published to an IoT topic in the cloud via MQTT Protocol
+* Inference video stream locally on the device
+
+We will look at both.
+
+### IoT 
+
+Once your project has deployed, scroll down your device page to the **Project Output** panel.
+
+![project output](https://user-images.githubusercontent.com/36491325/48432499-7d3fef80-e742-11e8-9740-43711b7df651.png)
+
+Click **Copy** to copy the IoT topic id unique to your device (this is the topic your Project is publishing messages to).
+
+Then click the link to the AWS IoT Console. Once there, paste your IoT topic id into the **Subscription topic** field, then click **Subscribe**.
+
+![iot dash](https://user-images.githubusercontent.com/36491325/48432695-1ec74100-e743-11e8-8af6-3268234b7233.png)
+
+You should now start to see the messages being published to your topic from your device.
+
+![iot topic](https://user-images.githubusercontent.com/36491325/48432734-3e5e6980-e743-11e8-83d7-3bfc46f10de6.png)
+
+These messages are the real-time results of our model. We get a label of what is detected (in this case, it's always a face) as well as the confidence score (how confident the model is that it's a face).
+
+IoT topics are an easy to transfer information from edge devices back into the cloud. Other functionality can be built around IoT topics; one example would be to monitor an IoT topic during hours you're away from home, and send a notification to yourself if a face is detected.
+
+### Video Stream
+
+We've seen in the IoT topics that our model outputs a label and a confidence score, but since it's a *detection* model it also outputs a *localization*, which in this case is bounding box coordinates. The best way to get a sense of this is to visualize the output for yourself.
  
+Aside from publishing messages, the default project also streams inference output to a file locally on disk. If you register your own device, it's possible to view this over brwoser; in this lab, you are on the device itself, and so you can easily visualize it fom the local stream.
+
 To view the output, open a terminal (on the Deeplens desktop UI, choose the top left button and search for terminal) and enter the following command:
 
 `mplayer -demuxer lavf -lavfdopts format=mjpeg:probesize=32 /tmp/results.mjpeg`
-
- 
-**Option 2: View over browser**
-
-Step 1- From the left navigation, Choose Devices. Choose your device. Choose View Output
-
-![view output](https://user-images.githubusercontent.com/11222214/41580046-41fab7d8-734e-11e8-8e1f-74e772f4f520.JPG)
-
-Step 2- Choose Firefox browser for Windows and Mac. Follow the instructions. When prompted for password keep it blank.
-
-![step 1 view output](https://user-images.githubusercontent.com/11222214/41580333-67a45326-734f-11e8-9219-503499a118dc.JPG)
-
-Step 3- Open a browser tab and navigate to https://0.0.0.0:4000
-
-View output and enjoy!
-</details>
-
-<details> <summary>Connected over headless mode and using browser on laptop/desktop </summary>
- 
- Step 1- From the left navigation, Choose Devices. Choose your device. Choose View Output
-
-![view output](https://user-images.githubusercontent.com/11222214/41580046-41fab7d8-734e-11e8-8e1f-74e772f4f520.JPG)
-
-Step 2- Choose your browser. Follow the instructions
-
-![step 1 view output](https://user-images.githubusercontent.com/11222214/41580333-67a45326-734f-11e8-9219-503499a118dc.JPG)
-
-Step 3- Click on **View stream**
-
-View the output and enjoy!
-</details>
-
-<details> <summary>Connected over headless mode and using SSH </summary>
-
-**Option 3: View over SSH **
-
-if you are accessing Deeplens over SSH then use following command over SSH
-
-`ssh aws_cam@$ip_address cat /tmp/\*results.mjpeg |mplayer –demuxer lavf -cache 8092 -lavfdopts format=mjpeg:probesize=32 -`
-
-For streaming over SSH you may need to install mplayer on your laptop by
-
-`sudo apt-get install mplayer`
-
-</details>
 
 Please visit https://docs.aws.amazon.com/deeplens/latest/dg/deeplens-viewing-device-output-on-device.html for more options to view the device stream
 
