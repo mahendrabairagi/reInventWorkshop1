@@ -25,7 +25,7 @@ Please click the drop-down menu between your account name and "Support" and sele
 
 Next, click the orange "Create notebook instance" box on the panel in the upper-right side of the screen. You should find yourself here:
 
-![Alt text](../screenshots/create_nb_instance_0.png)
+![Alt text](https://user-images.githubusercontent.com/36491325/48434908-0bb76f80-e749-11e8-8a50-612a6794996e.png)
 
 Amazon SageMaker provides pre-built fully managed notebook instances that run Jupyter notebooks. Here, we're going to configure our notebook server:
 * Under Notebook instance name: Enter a name for your notebook instance
