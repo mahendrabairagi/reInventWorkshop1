@@ -1,5 +1,7 @@
 ## Deploy Face Recognition project
 
+![architecture](https://user-images.githubusercontent.com/36491325/48433430-107a2480-e745-11e8-9069-2f6a19ae5dce.png)
+
 ### Step 1- Create Project
 
 The console should open on the Projects screen, select Create new project on the top right (if you don’t see the project list view, click on the hamburger menu on the left and select Projects)
