@@ -204,6 +204,12 @@ Under Custom Namespaces, select “string”, “Metrics with no dimensions”, 
 
 Next, set “Auto-refresh” to the smallest interval possible (1h), and change the “Period” to whatever works best for you (1 second or 5 seconds)
 
+You should get a dashboard similar to this:
+
+![dashboard](https://user-images.githubusercontent.com/36491325/48437100-75864800-e74e-11e8-8e36-5011ab66ebaf.png)
+
+You can now see average emotion scores from faces detected at the edge in a dashboard in real time.
+
 NOTE: These metrics will only appear once they have been sent to Cloudwatch via the Rekognition Lambda. It may take some time for them to appear after your model is deployed and running locally. If they do not appear, then there is a problem somewhere in the pipeline.
 
 
