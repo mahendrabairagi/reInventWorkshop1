@@ -188,6 +188,8 @@ Configure with the following:
 
 **Enable trigger**: ON (keep the checkbox on)
 
+Press **Add** button
+
 **Save** the lambda function
 
 Under **Actions** tab choose **Publish**
@@ -202,7 +204,7 @@ Choose Line in the widget
 
 Under Custom Namespaces, select “string”, “Metrics with no dimensions”, and then select all metrics.
 
-Next, set “Auto-refresh” to the smallest interval possible (1h), and change the “Period” to whatever works best for you (1 second or 5 seconds)
+Next, set “Auto-refresh” to the smallest interval possible (10 Seconds), the horizontal axis to Relative and 1 Hour(s), and change the “Period” to whatever works best for you (1 second or 5 seconds)
 
 You should get a dashboard similar to this:
 

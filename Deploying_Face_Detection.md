@@ -38,7 +38,7 @@ Select Deploy to device.
 
 ![choose project-edited-just picture](https://user-images.githubusercontent.com/11222214/38657988-eb9d98b6-3dd7-11e8-8c94-7273fcfa6e1b.jpg)
 
-On the Target device screen, choose your device from the list, and select **Review.**
+On the Target device screen, choose your device from the list by clicking a radio button, and select **Review.**
 
 ![target device](https://user-images.githubusercontent.com/11222214/38658011-088f81d2-3dd8-11e8-972a-9342b7b3e291.JPG)
 
