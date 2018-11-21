@@ -27,7 +27,6 @@ In this step, you will build and train a face detection model. Follow instructio
 #### Recall Bucket:
 
 Recall the bucket name you created in the SageMaker lab, we'll be using it shortly.
-Please make sure the Access to your S3 bucket is **"Objects can be public"**.
 
 #### Create Inference lambda function:
 
