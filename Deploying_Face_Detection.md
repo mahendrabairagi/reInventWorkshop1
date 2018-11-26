@@ -4,7 +4,7 @@
 
 ### Step 0 - Login to AWS DeepLens Device & AWS Account
 
-In this workshop, you have an AWS DeepLens device cin front of you connected to a monitor, keyboard, and mouse. AWS DeepLens runs an Ubuntu OS. Login to the device with the password **Aws2017!**.
+In this workshop, you have an AWS DeepLens device in front of you connected to a monitor, keyboard, and mouse. AWS DeepLens runs an Ubuntu OS. Login to the device with the password **Aws2017!**.
 
 We have already pre-registered your devices to workshop accounts. You can find the information for your account on the card in front of you taped to your monitor.
 
@@ -54,7 +54,7 @@ Select Deploy to device.
 
 ![choose project-edited-just picture](https://user-images.githubusercontent.com/11222214/38657988-eb9d98b6-3dd7-11e8-8c94-7273fcfa6e1b.jpg)
 
-On the Target device screen, choose your device from the list by clicking a radio button, and select **Review.**
+On the Target device screen, choose your device (your device name is on your card as **Device**) from the list by clicking a radio button, and select **Review.**.
 
 ![target device](https://user-images.githubusercontent.com/11222214/38658011-088f81d2-3dd8-11e8-972a-9342b7b3e291.JPG)
 
