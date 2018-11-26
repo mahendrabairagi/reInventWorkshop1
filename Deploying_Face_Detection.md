@@ -2,6 +2,22 @@
 
 ![architecture](https://user-images.githubusercontent.com/36491325/48433430-107a2480-e745-11e8-9069-2f6a19ae5dce.png)
 
+### Step 0 - Login to AWS DeepLens Device & AWS Account
+
+In this workshop, you have an AWS DeepLens device cin front of you connected to a monitor, keyboard, and mouse. AWS DeepLens runs an Ubuntu OS. Login to the device with the password **Aws2017!**.
+
+We have already pre-registered your devices to workshop accounts. You can find the information for your account on the card in front of you taped to your monitor.
+
+Open a Firefox browser on the left panel. Once Firefox is open, type **console.aws.amazon.com** into the url bar.
+(**Note**: If the login page says "Root user sign in" and there's already an email showing, select **Sign in to a different account** and then type in your **AWS Account** number on your card.)
+
+Once your login page shows three fields, please enter the following:
+* Account ID or alias: the **AWS Account** number on your card
+* IAM user name: the **User** name on your card
+* Password: **Aws2017!**
+
+Next, make sure you're in N. Virginia region, and navigate to the DeepLens Dashboard.
+
 ### Step 1- Create Project
 
 The console should open on the Projects screen, select Create new project on the top right (if you don’t see the project list view, click on the hamburger menu on the left and select Projects)
