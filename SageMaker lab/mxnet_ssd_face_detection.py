@@ -1822,10 +1822,9 @@ def parse_class_names(args):
 ###     Training Loop       ###
 ###############################
 
-def train(channel_input_dirs, hyperparameters, hosts):
+def train(channel_input_dirs, hyperparameters, hosts, num_gpus):
     #args = parse_args()
     # context list
-    num_gpus = hyperparameters.get('num_gpus', 0)
     batch_size = hyperparameters.get('batch_size', 8)
     epochs = hyperparameters.get('epochs', 240)
     learning_rate = hyperparameters.get('learning_rate', 0.004)
