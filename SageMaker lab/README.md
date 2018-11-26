@@ -74,7 +74,7 @@ The "New" tab on the top right can be used to create new files, as well as open 
 Once in the terminal, run the following commands to clone the repo into the dashboard's root directory:
 ```shell
 cd SageMaker/
-git clone https://github.com/mahendrabairagi/DeeplensWorkshop.git
+git clone https://github.com/mahendrabairagi/reInventWorkshop1.git
 ```
 
 Next, close the terminal tab and go back to the dashboard. You should see a new folder, "DeeplensWorkshop". 
