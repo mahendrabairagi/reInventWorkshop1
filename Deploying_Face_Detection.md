@@ -12,8 +12,8 @@ Open a Firefox browser on the left panel. Once Firefox is open, type **console.a
 (**Note**: If the login page says "Root user sign in" and there's already an email showing, select **Sign in to a different account** and then type in your **AWS Account** number on your card.)
 
 Once your login page shows three fields, please enter the following:
-* Account ID or alias: the **AWS Account** number on your card
-* IAM user name: the **User** name on your card
+* Account ID or alias: **deeplensuniversityworkshops**
+* IAM user name: the **user1** name on your card
 * Password: **P@ssword1**
 
 Next, make sure you're in N. Virginia region, and navigate to the DeepLens Dashboard.
