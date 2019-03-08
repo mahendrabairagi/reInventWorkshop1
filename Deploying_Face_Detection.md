@@ -14,7 +14,7 @@ Open a Firefox browser on the left panel. Once Firefox is open, type **console.a
 Once your login page shows three fields, please enter the following:
 * Account ID or alias: the **AWS Account** number on your card
 * IAM user name: the **User** name on your card
-* Password: **Aws2017!**
+* Password: **P@ssword1**
 
 Next, make sure you're in N. Virginia region, and navigate to the DeepLens Dashboard.
 
